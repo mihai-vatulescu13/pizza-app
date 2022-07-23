@@ -1,0 +1,45 @@
+<section class="auth-container">
+  <div class="auth-header">
+    <mat-icon class="login-person-icon">person_add</mat-icon>
+    <h1>Register</h1>
+  </div>
+  <section class="auth-container">
+    <form formGroup="profileForm" class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>First name</mat-label>
+        <input type="text" matInput formControlFirstName="firstName" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Last name</mat-label>
+        <input type="text" matInput formControlLastName="lasttName" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput formControlEmail="firstName" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput formControlPassword="firstName" />
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>City</mat-label>
+        <input type="text" matInput formControlCity="firstName" />
+      </mat-form-field>
+
+      <span class="submit-btn-box">
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          class="submit-btn"
+        >
+          Register
+        </button>
+      </span>
+    </form>
+  </section>
+</section>
