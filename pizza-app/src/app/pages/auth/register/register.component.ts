@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
+import { Register } from './register.model';
 
 @Component({
   selector: 'app-register',
@@ -16,4 +17,8 @@ export class RegisterComponent {
     password: [''],
     city: [''],
   });
+
+  public saveForm(): void {
+    console.log('form data:', this.profileForm.value);
+  }
 }

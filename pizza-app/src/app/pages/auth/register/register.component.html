@@ -4,30 +4,35 @@
     <h1>Register</h1>
   </div>
   <section class="auth-container">
-    <form formGroup="profileForm" class="example-form">
+    <h4>Create your account</h4>
+    <form
+      [formGroup]="profileForm"
+      class="example-form"
+      (ngSubmit)="saveForm()"
+    >
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>First name</mat-label>
-        <input type="text" matInput formControlFirstName="firstName" />
+        <input type="text" matInput formControlName="firstName" />
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Last name</mat-label>
-        <input type="text" matInput formControlLastName="lasttName" />
+        <input type="text" matInput formControlName="lastName" />
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
-        <input type="email" matInput formControlEmail="firstName" />
+        <input type="email" matInput formControlName="email" />
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Password</mat-label>
-        <input type="password" matInput formControlPassword="firstName" />
+        <input type="password" matInput formControlName="password" />
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>City</mat-label>
-        <input type="text" matInput formControlCity="firstName" />
+        <input type="text" matInput formControlName="city" />
       </mat-form-field>
 
       <span class="submit-btn-box">

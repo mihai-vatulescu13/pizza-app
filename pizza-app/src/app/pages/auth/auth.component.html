@@ -1,11 +1,24 @@
 <nav>
   <div class="app-logo"><h1>Bristo Pizza</h1></div>
-
   <div class="nav-buttons">
-    <button mat-raised-button routerLink="register" color="primary">
+    <button
+      *ngIf="authService.authPageState === 'login'"
+      mat-raised-button
+      routerLink="register"
+      color="primary"
+      (click)="authService.setAuthPage('register')"
+    >
       Register
     </button>
-    <button mat-raised-button routerLink="login" color="primary">Login</button>
+    <button
+      *ngIf="authService.authPageState === 'register'"
+      mat-raised-button
+      routerLink="login"
+      color="primary"
+      (click)="authService.setAuthPage('login')"
+    >
+      Login
+    </button>
   </div>
 </nav>
 <!-- the page where the user gets first(render login or register content): -->

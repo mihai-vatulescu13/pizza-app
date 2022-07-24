@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthPageState } from './auth.model';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-auth',
@@ -7,9 +7,9 @@ import { AuthPageState } from './auth.model';
   styleUrls: ['./auth.component.scss'],
 })
 export class AuthComponent implements OnInit {
-  public authPageState: AuthPageState = AuthPageState.Login;
+  constructor(public authService: AuthService) {}
 
-  constructor() {}
-
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // console.log('the page state is:', this.authService.authPageState);
+  }
 }
