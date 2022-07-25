@@ -5,7 +5,11 @@
   </div>
   <section class="auth-container">
     <h4>Login to your account</h4>
-    <form (ngSubmit)="onLogin()" [formGroup]="loginForm" class="example-form">
+    <form
+      (ngSubmit)="onUserLogin()"
+      [formGroup]="loginForm"
+      class="example-form"
+    >
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input type="email" matInput formControlName="email" />
