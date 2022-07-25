@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
-import { Login } from './login.model';
 
 @Component({
   selector: 'app-login',
@@ -17,8 +16,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.authService.getUsersData();
   }
-
-  public usersData: Login[] = [];
 
   //get data from the form:
   public loginForm = this.formBuilder.group({

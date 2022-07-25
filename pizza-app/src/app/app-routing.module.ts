@@ -14,6 +14,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/auth/auth.module').then((module) => module.AuthModule),
   },
+  {
+    path: 'private',
+    loadChildren: () =>
+      import('./pages/private-pages/private-pages.module').then(
+        (module) => module.PrivatePagesModule
+      ),
+  },
 ];
 
 @NgModule({

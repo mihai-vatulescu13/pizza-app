@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthPageState } from '../pages/auth/auth.model';
 import { AuthStatus, User } from './user-data.model';
 
@@ -10,8 +11,9 @@ export class AuthService {
   //login is the default page:
   public authPageState: AuthPageState = AuthPageState.Login;
   private usersData: User[] = [];
+  public connectedUser: User | any = {};
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   public setAuthPage(pageRoute: string): void {
     this.authPageState =
@@ -45,10 +47,17 @@ export class AuthService {
       currentUser.password === formData.password
     ) {
       console.log('user connected with success!');
+      //set the connected user and redirect the user to the home page:
+      this.setConnectedUser(currentUser);
+      this.router.navigateByUrl('private/home', { state: currentUser });
       return currentUser;
     } else {
       console.error('wrong credentials');
       return AuthStatus.Error;
     }
+  }
+
+  public setConnectedUser(userData: User): void {
+    this.connectedUser = userData;
   }
 }
