@@ -1,2 +1,8 @@
-<h1>Welcome {{ selectedUser.firstName }}!</h1>
+<h1 *ngIf="authService.isLoggedIn$ | async">
+  Welcome {{ authService.connectedUser.firstName }}!
+</h1>
+
+<button mat-raised-button color="primary" (click)="onLogOut()">Log out</button>
+
+<h4>{{ authService.connectedUser.isLoggedIn }}</h4>
 <h3>Home page + dashboard asdsas</h3>
