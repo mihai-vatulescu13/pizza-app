@@ -22,7 +22,7 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {
     const token = localStorage.getItem('user auth');
-    // console.log('authentication token:', !!token);
+    console.log('authentication token:', !!token);
     this._isLoggedIn$.next(!!token);
   }
 
@@ -59,7 +59,7 @@ export class AuthService {
       this._isLoggedIn$.next(true);
 
       //save user id(a token would be better) to keep them logged in:
-      console.log(this.connectedUser);
+      // console.log(this.connectedUser);
       localStorage.setItem('user auth', this.connectedUser.id);
 
       this.router.navigateByUrl('private/home');
@@ -81,8 +81,6 @@ export class AuthService {
   }
 
   public logOut(): void {
-    // this._isLoggedIn$.next(false);
-    // localStorage.removeItem('user auth');
     this.router.navigateByUrl('auth/login');
   }
 }
