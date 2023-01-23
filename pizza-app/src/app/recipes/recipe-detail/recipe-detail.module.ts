@@ -1,12 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
+import { NgModule } from '@angular/core';
+import { RecipeDetailComponent } from './recipe-detail.component';
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+  declarations: [RecipeDetailComponent],
+  imports: [CommonModule],
+  exports: [RecipeDetailComponent],
 })
-export class RecipeDetailModule { }
+export class RecipeDetailModule {}

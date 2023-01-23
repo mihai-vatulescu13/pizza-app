@@ -1,15 +1,10 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShoppingEditComponent } from './shopping-edit/shopping-edit.component';
-
-
+import { NgModule } from '@angular/core';
+import { ShoppingListComponent } from './shopping-list.component';
 
 @NgModule({
-  declarations: [
-    ShoppingEditComponent
-  ],
-  imports: [
-    CommonModule
-  ]
+  declarations: [ShoppingListComponent],
+  imports: [CommonModule],
+  exports: [ShoppingListComponent],
 })
-export class ShoppingListModule { }
+export class ShoppingListModule {}
