@@ -1,0 +1,26 @@
+.logo-nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.navbar-header {
+  margin: 10px;
+}
+
+.nav-links,
+.pages-links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px;
+}
+
+.pages-links > * {
+  margin: 10px;
+}
+
+.nav-links > ul > li > a {
+  text-decoration: none;
+  list-style-type: none;
+}
