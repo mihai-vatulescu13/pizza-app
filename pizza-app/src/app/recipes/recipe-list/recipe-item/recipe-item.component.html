@@ -1,16 +1,21 @@
 <div class="recipe-item-container">
-  <a href="#" class="item-style list-group-item clearfix">
-    <div class="pull-left">
-      <h4 class="list-group-item-heading">{{ recipeInput.name }}</h4>
-      <p class="list-group-item-text">{{ recipeInput.description }}</p>
+  <a
+    href="#"
+    class="item-style list-group-item clearfix"
+    (click)="onSelected()"
+  >
+    <div class="img-desc">
+      <div class="pull-left">
+        <h4 class="list-group-item-heading">{{ recipeInput.name }}</h4>
+        <p class="list-group-item-text">{{ recipeInput.description }}</p>
+      </div>
+      <span class="pull-right">
+        <img
+          [src]="recipeInput.imagePath"
+          alt="aaa"
+          class="img-responsive img-style"
+        />
+      </span>
     </div>
-    <span class="pull-right">
-      <img
-        [src]="recipeInput.imagePath"
-        alt="aaa"
-        class="img-responsive"
-        style="max-height: 120px"
-      />
-    </span>
   </a>
 </div>

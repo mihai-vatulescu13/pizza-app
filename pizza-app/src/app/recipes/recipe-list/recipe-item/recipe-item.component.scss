@@ -1,0 +1,19 @@
+.recipe-item-container {
+  border: 1px solid rgb(167, 167, 167);
+  border-radius: 5px;
+  margin: 10px;
+  padding: 6px;
+  background-color: aliceblue;
+}
+
+.img-desc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.img-style {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+}
