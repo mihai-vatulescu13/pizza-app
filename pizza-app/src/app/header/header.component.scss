@@ -28,3 +28,13 @@
 .navbar-container {
   background-color: rgb(221, 221, 221);
 }
+
+.menu-options {
+  z-index: 3;
+  list-style-type: none;
+  position: absolute;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(221, 221, 221);
+}

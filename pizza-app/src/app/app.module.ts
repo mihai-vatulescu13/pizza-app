@@ -5,10 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderModule } from './header/header.module';
 import { RecipesModule } from './recipes/recipes.module';
+import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, DropdownDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -16,7 +18,7 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     ShoppingListModule,
     HeaderModule,
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

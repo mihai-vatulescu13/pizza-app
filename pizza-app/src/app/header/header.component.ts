@@ -7,9 +7,15 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() featureSelected = new EventEmitter();
+  isOpenMenu: boolean = false;
 
   constructor() {}
 
+  ngOnInit(): void {}
+
+  onSwitchMenu() {
+    this.isOpenMenu = !this.isOpenMenu;
+  }
   onSelect(feature: string) {
     this.featureSelected.emit(feature);
   }
