@@ -16,14 +16,14 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <div class="btn-group">
-          <button
-            type="button"
-            (click)="onSwitchMenu()"
-            class="btn btn-primary dropdown-toggle"
-          >
-            Manage recipe <span class="caret"></span>
-          </button>
+        <button
+          type="button"
+          (click)="onSwitchMenu()"
+          class="btn btn-primary dropdown-toggle"
+        >
+          Manage recipe <span class="caret"></span>
+        </button>
+        <div class="manage-list">
           <ul class="manage-list" *ngIf="isOpenMenu">
             <li>
               <a href="#" (click)="onAddIngredients(recipe.ingredients)">

@@ -29,9 +29,8 @@ export class ShoppingListService {
     this.ingredientsChange.emit(this.ingredients.slice());
   }
 
-  public addProductIngredients(newIngredients: any) {
+  public addProductIngredients(newIngredients: Ingredient[]) {
     this.ingredients = [...this.ingredients, ...newIngredients];
     this.ingredientsChange.emit(this.ingredients.slice());
-    console.log('new list:', this.ingredients);
   }
 }

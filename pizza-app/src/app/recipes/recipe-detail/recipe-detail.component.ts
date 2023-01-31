@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ShoppingListService } from 'src/app/shopping-list/shopping-list.service';
+import { Ingredient } from 'src/app/shopping-list/ingredient.model';
 import { Recipe } from '../recipe-list/recipe.model';
+import { RecipeService } from '../recipe-list/recipe.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -9,9 +10,9 @@ import { Recipe } from '../recipe-list/recipe.model';
 })
 export class RecipeDetailComponent implements OnInit {
   @Input() recipe: Recipe;
-  isOpenMenu: boolean = false;
+  public isOpenMenu: boolean = false;
 
-  constructor(private shoppingListService: ShoppingListService) {}
+  constructor(private recipeService: RecipeService) {}
 
   ngOnInit(): void {}
 
@@ -19,8 +20,9 @@ export class RecipeDetailComponent implements OnInit {
     this.isOpenMenu = !this.isOpenMenu;
   }
 
-  public onAddIngredients(ingredients: any): void {
-    console.log('on add ingredients:');
-    this.shoppingListService.addProductIngredients(ingredients);
+  public onAddIngredients(ingredients: Ingredient[] | undefined): void {
+    if (ingredients) {
+      this.recipeService.addRecipeIngredients(ingredients);
+    }
   }
 }

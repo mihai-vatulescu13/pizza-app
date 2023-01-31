@@ -1,6 +1,7 @@
 .logo-nav {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
+  justify-content: start;
   flex-direction: row;
 }
 
@@ -16,6 +17,10 @@
   padding: 10px;
 }
 
+.nav-links {
+  justify-content: space-between;
+}
+
 .pages-links > * {
   margin: 10px;
 }
@@ -23,6 +28,7 @@
 .nav-links > ul > li > a {
   text-decoration: none;
   list-style-type: none;
+  color: rgb(97, 97, 97);
 }
 
 .navbar-container {
