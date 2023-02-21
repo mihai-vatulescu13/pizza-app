@@ -6,3 +6,8 @@ export interface Recipe {
   imagePath: string;
   ingredients?: Ingredient[];
 }
+
+export enum AddRemoveRecipeText {
+  NewRecipe = ' + New Recipe',
+  Close = 'Close',
+}

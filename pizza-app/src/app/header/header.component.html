@@ -1,33 +1,41 @@
 <nav class="navbar-container">
   <div class="logo-nav">
     <div class="navbar-header">
-      <a href="#" class="navbar-brand">
+      <a href="#" style="cursor: pointer" class="navbar-brand">
         <h3>Recipe book</h3>
       </a>
     </div>
 
     <div class="nav-links">
       <ul class="pages-links nav navbar-nav">
-        <li><a href="#" (click)="onSelect('recipes')">Recipes</a></li>
-        <li>
-          <a href="#" (click)="onSelect('shopping-list')">Shopping list</a>
+        <li routerLinkActive="active">
+          <a style="cursor: pointer" (click)="navToRoute('/recipes', $event)"
+            >Recipes</a
+          >
         </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown" appDropdown>
+        <li routerLinkActive="active">
           <a
-            href="#"
-            (click)="onSwitchMenu()"
-            class="dropdown-toggle"
-            role="button"
-            >Manage <span class="caret"></span
-          ></a>
-          <div class="menu-options" *ngIf="isOpenMenu">
-            <a href="#">Save data</a>
-            <a href="#">Fetch data</a>
-          </div>
+            style="cursor: pointer"
+            (click)="navToRoute('/shopping-list', $event)"
+            >Shopping list</a
+          >
         </li>
       </ul>
+      <div class="dropdown">
+        <a
+          id="dropdownMenuButton"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          style="cursor: pointer"
+        >
+          Manage
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a style="cursor: pointer" class="dropdown-item">Save data</a>
+          <a style="cursor: pointer" class="dropdown-item">Fetch data</a>
+        </div>
+      </div>
     </div>
   </div>
 </nav>

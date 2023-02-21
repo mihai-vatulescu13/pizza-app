@@ -1,8 +1,9 @@
 <div class="recipe-item-container">
+  <!-- this will communicate with the child route to redirect to the elem -->
   <a
-    href="#"
+    [routerLink]="[index]"
+    style="cursor: pointer"
     class="item-style list-group-item clearfix"
-    (click)="onSelected()"
   >
     <div class="img-desc">
       <div class="pull-left">

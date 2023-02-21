@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,16 +8,13 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class HeaderComponent {
   @Output() featureSelected = new EventEmitter();
-  isOpenMenu: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
 
-  onSwitchMenu() {
-    this.isOpenMenu = !this.isOpenMenu;
-  }
-  onSelect(feature: string) {
-    this.featureSelected.emit(feature);
+  public navToRoute(route: string, e: any): void {
+    e.preventDefault();
+    this.router.navigate([route]);
   }
 }

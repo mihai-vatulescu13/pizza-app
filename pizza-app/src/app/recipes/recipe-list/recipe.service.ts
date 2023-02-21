@@ -10,7 +10,10 @@ export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
 
   constructor(private shoppingListService: ShoppingListService) {}
-
+  //Features to add:
+  //use here json server on the future(instead of local mocked data):
+  //Add Pdf feature to download the recipe:
+  //use some local storage to save app state on refresh(with deletion after 8 hours):
   private recipes: Recipe[] = [
     {
       name: 'pizza',
@@ -78,7 +81,13 @@ export class RecipeService {
     return this.recipes.slice();
   }
 
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
   public addRecipeIngredients(ingredients: Ingredient[]): void {
     this.shoppingListService.addProductIngredients(ingredients);
   }
+
+  public addRecipeItem() {}
 }

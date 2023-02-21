@@ -1,14 +1,31 @@
 <div>
   <div class="row">
     <div class="add-recipe-btn col-xs-12">
-      <button class="btn btn-success">New Recipe</button>
+      <button
+        style="width: 150px"
+        class="btn btn-success"
+        (click)="toggleShopAddRecipe()"
+      >
+        {{
+          !showAddRecipeForm
+            ? addRemoveRecipeText.NewRecipe
+            : addRemoveRecipeText.Close
+        }}
+      </button>
+      <div class="col-xs-12">
+        <div *ngIf="showAddRecipeForm" @slideInAnimation>
+          <app-add-recipe (outputNewRecipe)="setToBeAddedRecipe($event)">
+          </app-add-recipe>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12">
       <app-recipe-item
-        *ngFor="let recipeElem of recipes"
+        *ngFor="let recipeElem of recipes; let i = index"
         [recipeInput]="recipeElem"
+        [index]="i"
       ></app-recipe-item>
     </div>
   </div>

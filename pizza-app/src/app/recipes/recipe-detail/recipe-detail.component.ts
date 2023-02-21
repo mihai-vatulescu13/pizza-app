@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Ingredient } from 'src/app/shopping-list/ingredient.model';
 import { Recipe } from '../recipe-list/recipe.model';
 import { RecipeService } from '../recipe-list/recipe.service';
@@ -9,18 +10,26 @@ import { RecipeService } from '../recipe-list/recipe.service';
   styleUrls: ['./recipe-detail.component.scss'],
 })
 export class RecipeDetailComponent implements OnInit {
-  @Input() recipe: Recipe;
-  public isOpenMenu: boolean = false;
+  recipe: Recipe;
+  id: number;
 
-  constructor(private recipeService: RecipeService) {}
+  constructor(
+    private recipeService: RecipeService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
-
-  public onSwitchMenu() {
-    this.isOpenMenu = !this.isOpenMenu;
+  ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => {
+      this.id = +params['id']; //this id is recognized from the router module because
+      this.recipe = this.recipeService.getRecipe(this.id);
+    });
   }
 
-  public onAddIngredients(ingredients: Ingredient[] | undefined): void {
+  public onAddIngredients(
+    ingredients: Ingredient[] | undefined,
+    event: any
+  ): void {
+    event.preventDefault();
     if (ingredients) {
       this.recipeService.addRecipeIngredients(ingredients);
     }
