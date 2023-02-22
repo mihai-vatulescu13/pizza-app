@@ -94,4 +94,9 @@ export class RecipeService {
     this.recipes.push(item);
     this.recipesList$.next(this.recipes);
   }
+
+  public updateRecipe(index: number, newRecipe: Recipe) {
+    this.recipes[index] = newRecipe;
+    this.recipesList$.next(this.recipes.slice());
+  }
 }

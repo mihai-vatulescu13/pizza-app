@@ -1,0 +1,9 @@
+.dynamic-field-style {
+  width: 200px;
+  margin-top: 10px;
+}
+
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
