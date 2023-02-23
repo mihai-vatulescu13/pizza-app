@@ -32,8 +32,18 @@
           Manage
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a style="cursor: pointer" class="dropdown-item">Save data</a>
-          <a style="cursor: pointer" class="dropdown-item">Fetch data</a>
+          <a
+            style="cursor: pointer"
+            class="dropdown-item"
+            (click)="onSaveRecipes()"
+            >Save data</a
+          >
+          <a
+            style="cursor: pointer"
+            (click)="onFetchRecipes()"
+            class="dropdown-item"
+            >Fetch data</a
+          >
         </div>
       </div>
     </div>
