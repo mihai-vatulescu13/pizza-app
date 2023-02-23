@@ -14,6 +14,6 @@ export class RecipesComponent implements OnInit {
 
   ngOnInit(): void {
     //added by default:
-    // this.dataStorageService.fetchRecipes();
+    this.dataStorageService.fetchRecipes();
   }
 }
