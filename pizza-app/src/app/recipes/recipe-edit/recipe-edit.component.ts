@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { RecipeService } from '../recipe-list/recipe.service';
 
 @Component({
@@ -16,7 +16,8 @@ export class RecipeEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private router: Router
   ) {}
 
   get controls() {
@@ -32,9 +33,19 @@ export class RecipeEditComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log(this.recipeForm.value);
-    this.recipeService.updateRecipe(this.id, this.recipeForm.value);
-    this.isSubmited = true;
+    console.log('data to be stored:\n', this.recipeForm.value);
+    if (this.editMode) {
+      this.recipeService.updateRecipe(this.id, this.recipeForm.value);
+      this.isSubmited = true;
+    } else {
+      this.recipeService.addRecipeItem(this.recipeForm.value);
+    }
+    this.onCancel();
+  }
+
+  public onCancel() {
+    //navigate back from the current route:
+    this.router.navigate(['../'], { relativeTo: this.route });
   }
 
   private initForm() {

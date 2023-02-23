@@ -14,7 +14,6 @@ export class RecipeService {
   //Features to add:
   //use here json server on the future(instead of local mocked data):
   //Add Pdf feature to download the recipe:
-  //use some local storage to save app state on refresh(with deletion after 8 hours):
   private recipes: Recipe[] = [
     {
       name: 'pizza',
@@ -98,5 +97,11 @@ export class RecipeService {
   public updateRecipe(index: number, newRecipe: Recipe) {
     this.recipes[index] = newRecipe;
     this.recipesList$.next(this.recipes.slice());
+  }
+
+  public deleteRecipe(index: number) {
+    //another way to delete an item:
+    this.recipes.splice(index, 1);
+    this.recipesList$.next(this.recipes);
   }
 }
