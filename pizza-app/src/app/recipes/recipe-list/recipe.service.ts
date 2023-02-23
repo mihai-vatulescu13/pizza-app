@@ -11,9 +11,7 @@ export class RecipeService {
   public recipesList$ = new Subject<Recipe[]>();
 
   constructor(private shoppingListService: ShoppingListService) {}
-  //Features to add:
-  //use here json server on the future(instead of local mocked data):
-  //Add Pdf feature to download the recipe:
+
   private recipes: Recipe[] = [];
 
   getRecipes() {
