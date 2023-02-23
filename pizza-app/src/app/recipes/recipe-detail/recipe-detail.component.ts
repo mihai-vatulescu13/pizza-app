@@ -12,6 +12,7 @@ import { RecipeService } from '../recipe-list/recipe.service';
 export class RecipeDetailComponent implements OnInit {
   recipe: Recipe;
   id: number;
+  hasIngredients: boolean;
 
   constructor(
     private recipeService: RecipeService,
@@ -24,6 +25,8 @@ export class RecipeDetailComponent implements OnInit {
       this.id = +params['id']; //this id is recognized from the router module because
       this.recipe = this.recipeService.getRecipe(this.id);
     });
+
+    console.log(this.recipe);
   }
 
   public onAddIngredients(
