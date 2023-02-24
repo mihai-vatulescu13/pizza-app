@@ -13,7 +13,7 @@ export class RecipesComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService) {}
 
   ngOnInit(): void {
-    //added by default:
-    this.dataStorageService.fetchRecipes();
+    //Load recipes by default:
+    this.dataStorageService.fetchRecipes().subscribe();
   }
 }

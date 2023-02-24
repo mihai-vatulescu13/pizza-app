@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderModule } from './header/header.module';
 import { RecipeEditModule } from './recipes/recipe-edit/recipe-edit.module';
 import { RecipesModule } from './recipes/recipes.module';
+import { DataResolverService } from './shared/services/data-resolver.service';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 
@@ -24,7 +25,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, DataResolverService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
