@@ -25,8 +25,6 @@ export class RecipeDetailComponent implements OnInit {
       this.id = +params['id']; //this id is recognized from the router module because
       this.recipe = this.recipeService.getRecipe(this.id);
     });
-
-    console.log(this.recipe);
   }
 
   public onAddIngredients(
