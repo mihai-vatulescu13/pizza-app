@@ -8,7 +8,8 @@
 
     <div class="nav-links">
       <ul class="pages-links nav navbar-nav">
-        <li routerLinkActive="active">
+        <li *ngIf="isAuthenticated"><a style="cursor: pointer">Logout</a></li>
+        <li *ngIf="isAuthenticated" routerLinkActive="active">
           <a style="cursor: pointer" (click)="navToRoute('/recipes', $event)"
             >Recipes</a
           >
@@ -20,13 +21,13 @@
             >Shopping list</a
           >
         </li>
-        <li routerLinkActive="active">
+        <li *ngIf="!isAuthenticated" routerLinkActive="active">
           <a style="cursor: pointer" (click)="navToRoute('/auth', $event)"
             >Authenticate</a
           >
         </li>
       </ul>
-      <div class="dropdown">
+      <div *ngIf="isAuthenticated" class="dropdown">
         <a
           id="dropdownMenuButton"
           data-toggle="dropdown"
