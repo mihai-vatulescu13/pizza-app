@@ -1,5 +1,5 @@
 <div class="container add-recipe-form">
-  <h5>Add new recipe</h5>
+  <h4><i class="bi bi-plus-circle-fill"></i> Add new recipe</h4>
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name:</label>
@@ -8,6 +8,7 @@
         class="form-control"
         id="name"
         formControlName="name"
+        placeholder="Recipe name"
       />
     </div>
     <div class="form-group">
@@ -17,6 +18,7 @@
         class="form-control"
         id="imagePath"
         formControlName="imagePath"
+        placeholder="Image URL link"
       />
     </div>
     <div class="form-group">
@@ -26,9 +28,12 @@
         id="description"
         formControlName="description"
         style="width: 430px; height: 100px"
+        placeholder="Recipe description"
       ></textarea>
     </div>
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!form.valid">
+      Add
+    </button>
     <button type="button" class="btn btn-primary ml-3" (click)="onCancel()">
       Cancel
     </button>

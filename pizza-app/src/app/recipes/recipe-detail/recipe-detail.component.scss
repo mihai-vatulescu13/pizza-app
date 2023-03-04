@@ -3,7 +3,8 @@
   border-radius: 5px;
   width: 400px;
   box-shadow: 5px 10px 10px gray;
-  margin-top: 48px;
+  margin-top: 100px;
+  margin-left: 20px;
 }
 
 .img-detail {
@@ -25,4 +26,21 @@
 
 .product-details {
   margin-top: 20px;
+}
+
+.close-recipe-details {
+  width: 32px;
+  height: 32px;
+  // text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  font-size: 1.45rem;
+}
+
+.recipe-detail-picture {
+  position: relative;
 }

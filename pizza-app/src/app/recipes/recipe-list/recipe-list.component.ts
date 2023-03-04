@@ -13,7 +13,6 @@ import { RecipeService } from './recipe.service';
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
   public recipes: Recipe[];
-  public showAddRecipeForm: boolean = false;
   public addRemoveRecipeText = AddRemoveRecipeText;
   public recipeToBeAdded: Recipe;
 
@@ -26,7 +25,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit(): void {
-    // this.recipes = this.recipeService.getRecipes();
     this.recipeService.recipesList$
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((data: Recipe[]) => {
@@ -35,12 +33,7 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   }
 
   public toggleShopAddRecipe(): void {
-    // this.showAddRecipeForm = !this.showAddRecipeForm;
     this.router.navigate(['new'], { relativeTo: this.route });
-  }
-
-  public setToBeAddedRecipe(event: any): void {
-    console.log('new item to be added...', event);
   }
 
   ngOnDestroy(): void {
