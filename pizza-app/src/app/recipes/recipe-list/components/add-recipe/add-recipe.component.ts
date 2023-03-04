@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { DataStorageService } from 'src/app/shared/services/data-storage.service';
 import { RecipeService } from '../../recipe.service';
 
 @Component({
@@ -13,7 +15,9 @@ export class AddRecipeComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private recipeService: RecipeService
+    private recipeService: RecipeService,
+    private dataStorageService: DataStorageService,
+    private location: Location
   ) {
     this.form = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -22,10 +26,12 @@ export class AddRecipeComponent {
     });
   }
 
-  onSubmit() {
-    // const { name, description } = this.form.value;
-    console.log(this.form.value);
-    this.outputNewRecipe.emit({ ...this.form.value, imagePath: '' });
+  public onSubmit() {
     this.recipeService.addRecipeItem({ ...this.form.value });
+    this.dataStorageService.saveRecipes();
+  }
+
+  public onCancel() {
+    this.location.back();
   }
 }

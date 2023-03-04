@@ -14,14 +14,20 @@ import { AuthService } from './auth.service';
 export class AuthInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) {}
 
+  //modify request before is sent to the server:
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     return this.authService.user$.pipe(
       take(1),
       exhaustMap((user: any) => {
-        //set a new toke to the request:
+        if (!user) {
+          return next.handle(req);
+        }
+
+        //set a new token to the entire request:
         const modifiedRequest = req.clone({
           params: new HttpParams().set('auth', user?.token),
         });
+
         //chained next:
         return next.handle(modifiedRequest);
       })

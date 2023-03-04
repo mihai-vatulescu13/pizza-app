@@ -27,17 +27,21 @@ export class AuthComponent {
     const { email, password } = form.value;
     this.isLoading = true;
 
-    let authObs: Observable<AuthResponseData>;
+    let authObservable: Observable<AuthResponseData>;
 
     if (this.isLoginMode) {
-      //do login stuff...
-      authObs = this.authService.login(email, password);
+      //assign the observable to the login email
+      authObservable = this.authService.login(email, password);
     } else {
-      authObs = this.authService.signUp(email, password);
+      authObservable = this.authService.register(email, password);
     }
 
-    //set the authObs as a generic observable(handle data or error):
-    authObs.subscribe(
+    /*
+     Set the authObservable as a generic observable and subscribe to it:
+     When an observable type function is assigned to this observable variable
+     its automativally gets subscribed like in the regular way of subscribing between observable and observer:
+    */
+    authObservable.subscribe(
       (resData) => {
         this.isLoading = false;
 
