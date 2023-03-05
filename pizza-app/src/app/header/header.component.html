@@ -8,9 +8,6 @@
 
     <div class="nav-links">
       <ul class="pages-links nav navbar-nav">
-        <li *ngIf="isAuthenticated">
-          <a style="cursor: pointer" (click)="onLogout()">Logout</a>
-        </li>
         <li *ngIf="isAuthenticated" routerLinkActive="active">
           <a style="cursor: pointer" (click)="navToRoute('/recipes', $event)"
             >Recipes</a
@@ -53,6 +50,9 @@
             >Fetch data</a
           >
         </div>
+      </div>
+      <div class="ml-3" *ngIf="isAuthenticated">
+        <button class="btn btn-danger" (click)="onLogout()">Logout</button>
       </div>
     </div>
   </div>
