@@ -105,6 +105,7 @@ export class AuthService {
     localStorage.removeItem('userData');
     this.router.navigate(['/auth']);
 
+    //if the token is not expired yet, delete that time expiration:
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }

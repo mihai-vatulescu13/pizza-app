@@ -21,7 +21,7 @@ export class DataResolverService implements Resolve<Recipe[]> {
     state: RouterStateSnapshot
   ): Observable<Recipe[]> | Promise<Recipe[]> | Recipe[] {
     const recipes = this.recipesService.getRecipes();
-    console.log('handle data... in resolver');
+
     //avoid POST data request if items already exists:
     //handle data before component/route gets loaded:
     if (recipes.length === 0) {

@@ -27,6 +27,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     ReactiveFormsModule,
     HttpClientModule,
     AuthModule,
+    // AlertModule,
   ],
   providers: [
     ShoppingListService,

@@ -9,16 +9,7 @@ export class ShoppingListService {
   public ingredientsChange$ = new Subject<Ingredient[]>();
   public selectedElemIndex$ = new Subject<number>();
 
-  private ingredients: Ingredient[] = [
-    {
-      name: 'Apples',
-      amount: 3,
-    },
-    {
-      name: 'Tomatoes',
-      amount: 10,
-    },
-  ];
+  private ingredients: Ingredient[] = [];
 
   constructor() {}
 
