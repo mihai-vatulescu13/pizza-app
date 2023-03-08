@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { DataStorageService } from 'src/app/shared/services/data-storage.service';
+import { Ingredient } from 'src/app/shopping-list/ingredient.model';
 import { RecipeService } from '../recipe-list/recipe.service';
 
 @Component({
@@ -35,7 +36,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   public onSubmit() {
-    console.log('data to be stored:\n', this.recipeForm.value);
     if (this.editMode) {
       this.recipeService.updateRecipe(this.id, this.recipeForm.value);
       this.isSubmited = true;
@@ -68,15 +68,7 @@ export class RecipeEditComponent implements OnInit {
 
       if (recipe['ingredients']) {
         for (let ingredient of recipe.ingredients) {
-          recipeIngredients.push(
-            new FormGroup({
-              name: new FormControl(ingredient.name, Validators.required),
-              amount: new FormControl(ingredient.amount, [
-                Validators.required,
-                Validators.pattern(/^[1-9]+[0-9]*$/),
-              ]),
-            })
-          );
+          recipeIngredients.push(this.getNewFormGroup(ingredient));
         }
       }
     }
@@ -86,6 +78,16 @@ export class RecipeEditComponent implements OnInit {
       imagePath: new FormControl(recipeImagePath, Validators.required),
       description: new FormControl(recipeDescription, Validators.required),
       ingredients: recipeIngredients,
+    });
+  }
+
+  private getNewFormGroup(ingredient: Ingredient) {
+    return new FormGroup({
+      name: new FormControl(ingredient.name, Validators.required),
+      amount: new FormControl(ingredient.amount, [
+        Validators.required,
+        Validators.pattern(/^[1-9]+[0-9]*$/),
+      ]),
     });
   }
 

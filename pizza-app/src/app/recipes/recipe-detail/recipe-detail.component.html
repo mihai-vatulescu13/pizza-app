@@ -34,6 +34,13 @@
             <a
               class="dropdown-item"
               style="cursor: pointer"
+              (click)="onAddToFavouriteList()"
+              ><i class="bi bi-heart-fill" style="color: #dc3545"></i> Add as
+              favourite</a
+            >
+            <a
+              class="dropdown-item"
+              style="cursor: pointer"
               (click)="onAddIngredients(recipe.ingredients, $event)"
               ><i class="bi bi-plus"></i> Add to shopping list</a
             >

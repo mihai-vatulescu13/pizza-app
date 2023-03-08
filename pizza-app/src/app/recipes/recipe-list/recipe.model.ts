@@ -5,6 +5,7 @@ export interface Recipe {
   description: string;
   imagePath: string;
   ingredients?: Ingredient[];
+  userId?: string | null | undefined;
 }
 
 export enum AddRemoveRecipeText {
