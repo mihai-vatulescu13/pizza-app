@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RecipeStartComponent } from './recipe-start.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [RecipeStartComponent],
   imports: [CommonModule],
-  exports: [],
+  exports: [RecipeStartComponent],
 })
 export class RecipeStartModule {}
