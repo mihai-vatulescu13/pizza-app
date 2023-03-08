@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthService } from '../auth/auth.service';
 import { DataStorageService } from '../shared/services/data-storage.service';
+import { Manage, Navigation } from './header.config';
 
 @Component({
   selector: 'app-header',
@@ -19,6 +20,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   @Output() featureSelected = new EventEmitter();
   private onDestroy$ = new Subject();
   isAuthenticated: boolean = false;
+
+  public navigation = Navigation;
+  public manage = Manage;
 
   constructor(
     private router: Router,

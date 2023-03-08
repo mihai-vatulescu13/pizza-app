@@ -9,21 +9,21 @@
     <div class="nav-links">
       <ul class="pages-links nav navbar-nav">
         <li *ngIf="isAuthenticated" routerLinkActive="active">
-          <a style="cursor: pointer" (click)="navToRoute('/recipes', $event)"
-            >Recipes</a
-          >
+          <a style="cursor: pointer" (click)="navToRoute('/recipes', $event)">{{
+            navigation.Recipes
+          }}</a>
         </li>
         <li routerLinkActive="active">
           <a
             style="cursor: pointer"
             (click)="navToRoute('/shopping-list', $event)"
-            >Shopping list</a
+            >{{ navigation.ShoppingList }}</a
           >
         </li>
         <li *ngIf="!isAuthenticated" routerLinkActive="active">
-          <a style="cursor: pointer" (click)="navToRoute('/auth', $event)"
-            >Authenticate</a
-          >
+          <a style="cursor: pointer" (click)="navToRoute('/auth', $event)">{{
+            navigation.Authenticate
+          }}</a>
         </li>
       </ul>
       <div *ngIf="isAuthenticated" class="dropdown">
@@ -34,25 +34,27 @@
           aria-expanded="false"
           style="cursor: pointer"
         >
-          Manage
+          {{ manage.Manage }}
         </a>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <a
             style="cursor: pointer"
             class="dropdown-item"
             (click)="onSaveRecipes()"
-            >Save data</a
+            >{{ manage.SaveData }}</a
           >
           <a
             style="cursor: pointer"
             (click)="onFetchRecipes()"
             class="dropdown-item"
-            >Fetch data</a
+            >{{ manage.FetchData }}</a
           >
         </div>
       </div>
       <div class="ml-3" *ngIf="isAuthenticated">
-        <button class="btn btn-danger" (click)="onLogout()">Logout</button>
+        <a style="cursor: pointer" class="dropdown-item" (click)="onLogout()">
+          <i class="bi bi-door-closed mr-1"></i>{{ navigation.Logout }}</a
+        >
       </div>
     </div>
   </div>
