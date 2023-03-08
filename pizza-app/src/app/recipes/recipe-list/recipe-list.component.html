@@ -12,12 +12,14 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 recipes-container">
-      <app-recipe-item
-        *ngFor="let recipeElem of recipes; let i = index"
-        [recipeInput]="recipeElem"
-        [index]="i"
-      ></app-recipe-item>
+    <div class="col-xs-12">
+      <div class="recipes-container" scrollBarStyle>
+        <app-recipe-item
+          *ngFor="let recipeElem of recipes; let i = index"
+          [recipeInput]="recipeElem"
+          [index]="i"
+        ></app-recipe-item>
+      </div>
     </div>
   </div>
 </div>
