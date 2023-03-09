@@ -1,6 +1,9 @@
 <div>
   <h5>Ingredients:</h5>
-  <div class="col-xs-12 ingredients-table">
+  <div
+    class="col-xs-12 ingredients-table"
+    [ngClass]="recipeIngredients.length > 0 ? 'table-height' : ''"
+  >
     <table class="table table-striped">
       <thead>
         <tr>

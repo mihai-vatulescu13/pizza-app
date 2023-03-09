@@ -1,6 +1,9 @@
 .ingredients-table {
-  height: 250px;
   overflow-y: scroll;
+}
+
+.table-height {
+  height: 250px;
 }
 
 ::-webkit-scrollbar {

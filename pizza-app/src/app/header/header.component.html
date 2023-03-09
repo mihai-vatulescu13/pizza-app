@@ -25,6 +25,11 @@
             navigation.Authenticate
           }}</a>
         </li>
+        <li>
+          <a style="cursor: pointer" (click)="navToRoute('/favorites', $event)"
+            ><i class="bi bi-heart mr-1"></i>{{ navigation.Favorites }}</a
+          >
+        </li>
       </ul>
       <div *ngIf="isAuthenticated" class="dropdown">
         <a

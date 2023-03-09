@@ -3,6 +3,7 @@ export enum Navigation {
   ShoppingList = 'Shopping list',
   Authenticate = 'Authenticate',
   Logout = 'Logout',
+  Favorites = 'Favorites',
 }
 
 export enum Manage {

@@ -9,16 +9,27 @@ import { Recipe } from './recipe.model';
 })
 export class RecipeService {
   public recipesList$ = new Subject<Recipe[]>();
+  public favoritesRecipesList$ = new Subject<Recipe[]>();
 
   constructor(private shoppingListService: ShoppingListService) {}
 
   private recipes: Recipe[] = [];
+  private favoritesRecipes: Recipe[] = [];
 
-  getRecipes() {
+  getRecipes(): Recipe[] {
     return this.recipes.slice();
   }
 
-  setRecipes(newRecipes: Recipe[]) {
+  getFavoritesRecipes(): Recipe[] {
+    return this.favoritesRecipes.slice();
+  }
+
+  setFavoriteRecipe(item: Recipe): void {
+    this.favoritesRecipes.push(item);
+    this.favoritesRecipesList$.next(this.favoritesRecipes);
+  }
+
+  setRecipes(newRecipes: Recipe[]): void {
     this.recipes = newRecipes;
     this.recipesList$.next(this.recipes.slice());
   }

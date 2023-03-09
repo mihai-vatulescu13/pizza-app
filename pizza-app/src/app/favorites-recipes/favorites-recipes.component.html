@@ -1,0 +1,31 @@
+<div>
+  <div class="row">
+    <div class="col xs-12">
+      <div class="mt-3">
+        <h4>Favourites recipes</h4>
+        <div *ngIf="_favoriteRecipes.length > 0">
+          <div
+            *ngFor="let recipeElem of _favoriteRecipes"
+            class="favorite-item"
+          >
+            <div class="img-desc">
+              <div class="pull-left">
+                <h4 class="list-group-item-heading">{{ recipeElem.name }}</h4>
+                <p class="list-group-item-text">
+                  {{ recipeElem.description }}
+                </p>
+              </div>
+              <span class="pull-right">
+                <img
+                  [src]="recipeElem.imagePath"
+                  alt="aaa"
+                  class="img-responsive img-style"
+                />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

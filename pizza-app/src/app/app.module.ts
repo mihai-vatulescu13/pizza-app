@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
 import { AuthModule } from './auth/auth.module';
+import { FavoritesRecipesModule } from './favorites-recipes/favorites-recipes.module';
 import { HeaderModule } from './header/header.module';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 import { RecipesModule } from './recipes/recipes.module';
@@ -28,6 +29,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     AuthModule,
     FormsModule,
     RecipesRoutingModule,
+    FavoritesRecipesModule,
   ],
   providers: [
     ShoppingListService,

@@ -32,7 +32,6 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     this.route.params.subscribe((params: Params) => {
       this.id = +params['id']; //this id is recognized from the router module because
       this.recipe = this.recipeService.getRecipe(this.id);
-      console.log('selected recipe:', this.recipe);
     });
 
     this.authService.user$
@@ -77,6 +76,13 @@ export class RecipeDetailComponent implements OnInit, OnDestroy {
     });
 
     this.dataStorageService.saveRecipes();
+
+    this.recipeService.setFavoriteRecipe({
+      ...this.recipe,
+      userId,
+    });
+
+    this.dataStorageService.saveFavoriteRecipes();
   }
 
   ngOnDestroy(): void {
