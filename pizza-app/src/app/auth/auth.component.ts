@@ -61,7 +61,7 @@ export class AuthComponent implements OnDestroy {
      its automativally gets subscribed like in the regular way of subscribing between observable and observer:
     */
     authObservable.subscribe(
-      (resData) => {
+      () => {
         this.isLoading = false;
 
         this.router.navigate(['/recipes']);

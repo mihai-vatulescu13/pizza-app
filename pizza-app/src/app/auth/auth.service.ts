@@ -143,6 +143,7 @@ export class AuthService {
     let errorMessage = 'An unknown error occured';
     console.log(errorResponse);
 
+    //show incorrect data: good approach:
     if (!errorResponse.error || !errorResponse.error.error) {
       return throwError(errorMessage);
     }
