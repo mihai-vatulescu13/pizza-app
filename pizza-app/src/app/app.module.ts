@@ -12,7 +12,6 @@ import { HeaderModule } from './header/header.module';
 import { RecipesRoutingModule } from './recipes/recipes-routing.module';
 import { RecipesModule } from './recipes/recipes.module';
 import { DataResolverService } from './shared/services/data-resolver.service';
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @NgModule({
@@ -21,7 +20,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     BrowserModule,
     AppRoutingModule,
     RecipesModule,
-    ShoppingListModule,
+    // ShoppingListModule,
     HeaderModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
